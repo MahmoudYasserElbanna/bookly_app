@@ -1,4 +1,4 @@
-import 'package:bookly_app/assets.dart';
+import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/feature/home/presentation/view/home_view.dart';
 import 'package:bookly_app/feature/splash/presentation/view/widgets/sliding_animation_builder.dart';
