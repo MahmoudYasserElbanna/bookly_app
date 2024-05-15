@@ -1,7 +1,7 @@
 import 'package:bookly_app/feature/home/presentation/view/book_details_view.dart';
 import 'package:bookly_app/feature/home/presentation/view/home_view.dart';
 import 'package:bookly_app/feature/splash/presentation/view/splash_view.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:go_router/go_router.dart';
 
 abstract class AppRoutes {

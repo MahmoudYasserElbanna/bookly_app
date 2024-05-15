@@ -1,7 +1,5 @@
 import 'package:bookly_app/core/utils/app_routes.dart';
 import 'package:bookly_app/core/utils/assets.dart';
-import 'package:bookly_app/constants.dart';
-import 'package:bookly_app/feature/home/presentation/view/home_view.dart';
 import 'package:bookly_app/feature/splash/presentation/view/widgets/sliding_animation_builder.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
