@@ -1,8 +1,9 @@
+import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/app_routes.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/feature/home/presentation/view/widgets/book_rating.dart';
-import 'package:bookly_app/feature/home/presentation/view/widgets/books_list_view_item.dart';
+import 'package:bookly_app/feature/home/presentation/view/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
@@ -20,12 +21,10 @@ class BestSellerBooksItem extends StatelessWidget {
         height: 120,
         child: Row(
           children: [
-            BooksListViewItem(
-              width: 2.7,
-              height: 4,
+            CustomBookImage(
               image: AssetsData.testImage,
             ),
-            const SizedBox(width: 30),
+            const SizedBox(width: kDefaultPadding),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

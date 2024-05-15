@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class BooksListViewItem extends StatelessWidget {
-  const BooksListViewItem({
+class CustomBookImage extends StatelessWidget {
+  const CustomBookImage({
     super.key,
-    required this.width,
-    required this.height,
+    this.width = 2.7,
+    this.height = 4,
     required this.image,
   });
   final double width, height;
