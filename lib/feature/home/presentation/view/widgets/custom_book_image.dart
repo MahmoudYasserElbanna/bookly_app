@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class CustomBookImage extends StatelessWidget {
   const CustomBookImage({
     super.key,
-    this.width = 2.6,
-    this.height = 4,
+    this.width = 1.4,
+    this.height = 2,
     required this.image,
   });
   final double width, height;
