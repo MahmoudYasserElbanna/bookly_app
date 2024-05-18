@@ -1,7 +1,8 @@
 import 'package:bookly_app/feature/search/presentation/view/widgets/custom_search_text_field.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:bookly_app/feature/search/presentation/view/widgets/search_view_list_view.dart';
+
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter/widgets.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -13,6 +14,7 @@ class SearchViewBody extends StatelessWidget {
       child: Column(
         children: [
           CustomSearchTextField(),
+          Expanded(child: SearchResultListView()),
         ],
       ),
     );
