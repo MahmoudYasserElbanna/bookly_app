@@ -10,11 +10,12 @@ class HomeRepositoryImpl implements HomeRepos {
   HomeRepositoryImpl(this.apiService);
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
+  Future<Either<Failure, List<BookModel>>> fetchNewestBooks(
+      {required String subject}) async {
     try {
       var data = await apiService.get(
         endPoint:
-            'volumes?Filtering=free-ebooks&q=subject:Programming&Sorting=newest',
+            'volumes?Filtering=free-ebooks&q=$subject:Programming&Sorting=newest',
       );
 
       List<BookModel> books = [];
@@ -32,12 +33,23 @@ class HomeRepositoryImpl implements HomeRepos {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() {
-    // try {
-    //   return right();
-    // } catch (e) {
-    //   return left(ServerFailure());
-    // }
-    throw UnimplementedError();
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
+    try {
+      var data = await apiService.get(
+        endPoint: 'volumes?Filtering=free-ebooks&q=subject:Programming',
+      );
+
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(BookModel.fromJson(item));
+      }
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      } else {
+        return left(ServerFailure(errMessage: e.toString()));
+      }
+    }
   }
 }
