@@ -9,16 +9,16 @@ sealed class FeaturedBooksState extends Equatable {
 
 final class FeaturedBooksInitial extends FeaturedBooksState {}
 
-final class FeaturedBooksLoaded extends FeaturedBooksState {}
+final class FeaturedBooksLoading extends FeaturedBooksState {}
 
-final class FeaturedBooksFailed extends FeaturedBooksState {
+final class FeaturedBooksFailure extends FeaturedBooksState {
   final String errMessage;
 
-  const FeaturedBooksFailed({required this.errMessage});
+  const FeaturedBooksFailure(this.errMessage);
 }
 
 final class FeaturedBooksSuccess extends FeaturedBooksState {
   // let the cubit handling data with UI elements
   final List<BookModel> books;
-  const FeaturedBooksSuccess({required this.books});
+  const FeaturedBooksSuccess(this.books);
 }
