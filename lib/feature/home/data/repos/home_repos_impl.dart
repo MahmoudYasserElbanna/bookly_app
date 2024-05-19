@@ -10,12 +10,11 @@ class HomeRepositoryImpl implements HomeRepos {
   HomeRepositoryImpl(this.apiService);
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchNewestBooks(
-      {required String subject}) async {
+  Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
     try {
       var data = await apiService.get(
         endPoint:
-            'volumes?Filtering=free-ebooks&q=$subject:Programming&Sorting=newest',
+            'volumes?Filtering=free-ebooks&q=subject:Programming&Sorting=newest',
       );
 
       List<BookModel> books = [];
