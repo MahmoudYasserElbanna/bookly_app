@@ -1,15 +1,16 @@
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/app_routes.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/feature/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/feature/home/presentation/view/widgets/book_rating.dart';
 import 'package:bookly_app/feature/home/presentation/view/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
-class BooksListViewItem extends StatelessWidget {
-  const BooksListViewItem({super.key});
-
+class NewestBooksListViewItem extends StatelessWidget {
+  const NewestBooksListViewItem({super.key, required this.boolModel});
+  final BookModel boolModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -20,9 +21,8 @@ class BooksListViewItem extends StatelessWidget {
         height: 120,
         child: Row(
           children: [
-            const CustomBookImage(
-              imageUrl:
-                  'https://hips.hearstapps.com/sev.h-cdn.co/assets/16/12/480x711/gallery-1458597159-1442249474-rs-634x940-150817114528-634-jungle-book-poster-d23.jpg?resize=1200:*',
+            CustomBookImage(
+              imageUrl: boolModel.volumeInfo!.imageLinks!.thumbnail!,
             ),
             const SizedBox(width: kDefaultPadding),
             Expanded(
