@@ -1,6 +1,5 @@
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/app_routes.dart';
-import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/feature/home/presentation/view/widgets/book_rating.dart';
 import 'package:bookly_app/feature/home/presentation/view/widgets/custom_book_image.dart';
@@ -23,7 +22,7 @@ class BooksListViewItem extends StatelessWidget {
           children: [
             const CustomBookImage(
               imageUrl:
-                  'https://www.seventeen.com/celebrity/news/a39029/disney-jungle-book-photos/',
+                  'https://hips.hearstapps.com/sev.h-cdn.co/assets/16/12/480x711/gallery-1458597159-1442249474-rs-634x940-150817114528-634-jungle-book-poster-d23.jpg?resize=1200:*',
             ),
             const SizedBox(width: kDefaultPadding),
             Expanded(

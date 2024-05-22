@@ -1,4 +1,3 @@
-import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/widgets/custom_progress_indicator.dart';
 import 'package:bookly_app/feature/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/feature/home/presentation/view/widgets/custom_book_image.dart';

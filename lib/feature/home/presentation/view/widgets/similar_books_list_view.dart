@@ -1,4 +1,3 @@
-import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/feature/home/presentation/view/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +17,7 @@ class SimilarBooksListView extends StatelessWidget {
                 width: 2,
                 height: 3.5,
                 imageUrl:
-                    'https://www.seventeen.com/celebrity/news/a39029/disney-jungle-book-photos/'),
+                    'https://hips.hearstapps.com/sev.h-cdn.co/assets/16/12/480x711/gallery-1458597159-1442249474-rs-634x940-150817114528-634-jungle-book-poster-d23.jpg?resize=1200:*'),
           );
         },
       ),
