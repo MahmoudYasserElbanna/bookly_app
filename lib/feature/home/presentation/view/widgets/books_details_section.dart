@@ -17,7 +17,10 @@ class BookDetailsSection extends StatelessWidget {
         const CustomBooksDetailsAppBar(),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.15),
-          child: CustomBookImage(image: AssetsData.testImage),
+          child: const CustomBookImage(
+            imageUrl:
+                'https://www.seventeen.com/celebrity/news/a39029/disney-jungle-book-photos/',
+          ),
         ),
         const SizedBox(height: kDefaultPadding),
         const Text(

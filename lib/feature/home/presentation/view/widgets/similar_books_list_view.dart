@@ -12,13 +12,13 @@ class SimilarBooksListView extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
+          return const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 5),
             child: CustomBookImage(
-              width: 2,
-              height: 3.5,
-              image: AssetsData.testImage,
-            ),
+                width: 2,
+                height: 3.5,
+                imageUrl:
+                    'https://www.seventeen.com/celebrity/news/a39029/disney-jungle-book-photos/'),
           );
         },
       ),

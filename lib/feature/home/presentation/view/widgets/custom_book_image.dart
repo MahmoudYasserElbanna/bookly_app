@@ -5,11 +5,11 @@ class CustomBookImage extends StatelessWidget {
     super.key,
     this.width = 1.4,
     this.height = 2,
-    required this.image,
+    required this.imageUrl,
   });
   final double width, height;
-  final String image;
 
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -18,7 +18,7 @@ class CustomBookImage extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           image: DecorationImage(
-            image: AssetImage(image),
+            image: NetworkImage(imageUrl),
             fit: BoxFit.fill,
           ),
         ),

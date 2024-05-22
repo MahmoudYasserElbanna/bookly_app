@@ -21,8 +21,9 @@ class BooksListViewItem extends StatelessWidget {
         height: 120,
         child: Row(
           children: [
-            CustomBookImage(
-              image: AssetsData.testImage,
+            const CustomBookImage(
+              imageUrl:
+                  'https://www.seventeen.com/celebrity/news/a39029/disney-jungle-book-photos/',
             ),
             const SizedBox(width: kDefaultPadding),
             Expanded(
