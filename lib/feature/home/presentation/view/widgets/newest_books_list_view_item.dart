@@ -15,7 +15,8 @@ class NewestBooksListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRoutes.bookDetailsViewRoute);
+        GoRouter.of(context)
+            .push(AppRoutes.bookDetailsViewRoute, extra: bookModel);
       },
       child: SizedBox(
         height: 120,
@@ -47,7 +48,7 @@ class NewestBooksListViewItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Padding(
-                    padding: EdgeInsets.only(right: 16),
+                    padding: const EdgeInsets.only(right: 16),
                     child: Row(
                       children: [
                         const Text(
@@ -60,7 +61,7 @@ class NewestBooksListViewItem extends StatelessWidget {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

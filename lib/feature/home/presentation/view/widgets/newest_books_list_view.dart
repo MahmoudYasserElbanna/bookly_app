@@ -15,6 +15,7 @@ class NewestBooksListView extends StatelessWidget {
         if (state is NewestBooksSuccess) {
           return ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
             itemCount: state.books.length,
             itemBuilder: (context, index) {
               return Padding(
