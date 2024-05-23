@@ -20,7 +20,7 @@ class NewestBooksListView extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: NewestBooksListViewItem(
-                  boolModel: state.books[index],
+                  bookModel: state.books[index],
                 ),
               );
             },

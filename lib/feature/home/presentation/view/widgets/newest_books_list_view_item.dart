@@ -9,8 +9,8 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
 class NewestBooksListViewItem extends StatelessWidget {
-  const NewestBooksListViewItem({super.key, required this.boolModel});
-  final BookModel boolModel;
+  const NewestBooksListViewItem({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -22,7 +22,9 @@ class NewestBooksListViewItem extends StatelessWidget {
         child: Row(
           children: [
             CustomBookImage(
-              imageUrl: boolModel.volumeInfo!.imageLinks!.thumbnail!,
+              width: 3,
+              height: 4,
+              imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!,
             ),
             const SizedBox(width: kDefaultPadding),
             Expanded(
@@ -31,29 +33,31 @@ class NewestBooksListViewItem extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
-                    child: const Text(
-                      'Harry Potter and the Goblet Fire',
+                    child: Text(
+                      bookModel.volumeInfo!.title!,
                       style: Style.textStyle20,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const SizedBox(height: 4),
-                  const Text(
-                    'J.K. Robert Bruce',
+                  Text(
+                    bookModel.volumeInfo!.authors!.first,
                     style: Style.textStyle14,
                   ),
                   const SizedBox(height: 4),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(right: 16),
                     child: Row(
                       children: [
-                        Text(
-                          '19.99 \$',
+                        const Text(
+                          "0.00 \$",
                           style: Style.textStyle20,
                         ),
-                        Spacer(),
-                        BookRating(),
+                        const Spacer(),
+                        BookRating(
+                          pageCount: bookModel.volumeInfo!.pageCount ?? 0,
+                        ),
                       ],
                     ),
                   )
