@@ -26,7 +26,7 @@ class BookDetailsButtonActions extends StatelessWidget {
             onPressed: () {
               getUrl(bookModel.volumeInfo!.previewLink!);
             },
-            text: 'Free Preview',
+            text: getText(bookModel),
             textColor: Colors.white,
             backgroundColor: const Color(0XFFEF8262),
             borderRadius: const BorderRadius.only(
@@ -40,15 +40,19 @@ class BookDetailsButtonActions extends StatelessWidget {
   }
 
   Future<void> getUrl(String path) async {
-    Uri url = Uri(path: path);
-
+    Uri url = Uri.parse(path);
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
+    } else {
+      throw Exception('Could not launch $url');
     }
-    // else {
-    //   throw Exception('Could not launch $url');
-    // }
+  }
+
+  String getText(BookModel bookModel) {
+    if (bookModel.volumeInfo!.previewLink == null) {
+      return 'Not Available';
+    } else {
+      return 'Preview';
+    }
   }
 }
-
-getText(String url) {}
