@@ -22,7 +22,9 @@ class BookDetailsViewBody extends StatelessWidget {
                 BookDetailsSection(
                   bookModel: model,
                 ),
-                const SimilarBooksListViewSection(),
+                SimilarBooksListViewSection(
+                  model: model,
+                ),
                 const SizedBox(height: kDefaultPadding),
               ],
             ),

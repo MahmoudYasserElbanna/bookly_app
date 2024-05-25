@@ -1,14 +1,16 @@
+import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BookDetailsButtonActions extends StatelessWidget {
-  const BookDetailsButtonActions({super.key});
-
+  const BookDetailsButtonActions({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
-        Expanded(
+        const Expanded(
           child: CustomButton(
             text: 'Free',
             textColor: Colors.black,
@@ -21,10 +23,13 @@ class BookDetailsButtonActions extends StatelessWidget {
         ),
         Expanded(
           child: CustomButton(
+            onPressed: () {
+              getUrl(bookModel.volumeInfo!.previewLink!);
+            },
             text: 'Free Preview',
             textColor: Colors.white,
-            backgroundColor: Color(0XFFEF8262),
-            borderRadius: BorderRadius.only(
+            backgroundColor: const Color(0XFFEF8262),
+            borderRadius: const BorderRadius.only(
               bottomRight: Radius.circular(18),
               topRight: Radius.circular(18),
             ),
@@ -33,12 +38,17 @@ class BookDetailsButtonActions extends StatelessWidget {
       ],
     );
   }
+
+  Future<void> getUrl(String path) async {
+    Uri url = Uri(path: path);
+
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    }
+    // else {
+    //   throw Exception('Could not launch $url');
+    // }
+  }
 }
 
-getText(String url) {
-  // Future<void> _launchUrl() async {
-  //   if (!await launchUrl(_url)) {
-  //     throw Exception('Could not launch $_url');
-  //   }
-  // }
-}
+getText(String url) {}
