@@ -1,7 +1,5 @@
 import 'package:bookly_app/core/widgets/custom_error_message.dart';
 import 'package:bookly_app/core/widgets/custom_progress_indicator.dart';
-import 'package:bookly_app/feature/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
-import 'package:bookly_app/feature/home/presentation/view/widgets/newest_books_list_view.dart';
 import 'package:bookly_app/feature/home/presentation/view/widgets/newest_books_list_view_item.dart';
 import 'package:bookly_app/feature/search/presentation/manager/cubit/search_result_cubit.dart';
 
@@ -17,7 +15,6 @@ class SearchResultListView extends StatelessWidget {
       builder: (context, state) {
         if (state is SearchResultSuccess) {
           return ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: state.books.length,
             itemBuilder: (context, index) {

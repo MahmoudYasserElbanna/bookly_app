@@ -13,7 +13,7 @@ class SearchRepositoryImpl implements SearchRepo {
       {required String query}) async {
     try {
       var data = await apiService.get(
-        endPoint: 'volumes?Filtering=free-ebooks&Sorting=relevance&q=food',
+        endPoint: 'volumes?Filtering=free-ebooks&Sorting=relevance&q=$query',
       );
 
       List<BookModel> books = [];
