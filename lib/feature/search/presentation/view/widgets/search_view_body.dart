@@ -5,9 +5,14 @@ import 'package:bookly_app/feature/search/presentation/view/widgets/search_view_
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class SearchViewBody extends StatelessWidget {
+class SearchViewBody extends StatefulWidget {
   const SearchViewBody({super.key});
 
+  @override
+  State<SearchViewBody> createState() => _SearchViewBodyState();
+}
+
+class _SearchViewBodyState extends State<SearchViewBody> {
   @override
   Widget build(BuildContext context) {
     return const Padding(

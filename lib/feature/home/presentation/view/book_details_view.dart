@@ -1,4 +1,4 @@
-import 'package:bookly_app/feature/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/feature/home/presentation/manager/relevance_books_cubit/relevance_books_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
