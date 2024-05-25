@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/functions/get_url_lanucher.dart';
 import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -24,9 +25,9 @@ class BookDetailsButtonActions extends StatelessWidget {
         Expanded(
           child: CustomButton(
             onPressed: () {
-              getUrl(bookModel.volumeInfo!.previewLink!);
+              getUrlLauncher(bookModel.volumeInfo!.previewLink!);
             },
-            text: getText(bookModel),
+            text: getText(context, bookModel),
             textColor: Colors.white,
             backgroundColor: const Color(0XFFEF8262),
             borderRadius: const BorderRadius.only(
@@ -39,18 +40,15 @@ class BookDetailsButtonActions extends StatelessWidget {
     );
   }
 
-  Future<void> getUrl(String path) async {
-    Uri url = Uri.parse(path);
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-    } else {
-      throw Exception('Could not launch $url');
-    }
-  }
-
-  String getText(BookModel bookModel) {
+  String getText(context, BookModel bookModel) {
     if (bookModel.volumeInfo!.previewLink == null) {
-      return 'Not Available';
+      return ScaffoldMessenger.of(context)
+          .showSnackBar(
+            const SnackBar(
+              content: Text('Not Available'),
+            ),
+          )
+          .toString();
     } else {
       return 'Preview';
     }
