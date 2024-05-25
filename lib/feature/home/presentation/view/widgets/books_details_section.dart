@@ -1,4 +1,5 @@
 import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/feature/home/presentation/view/widgets/book_details_view_custom_app_bar.dart';
 import 'package:bookly_app/feature/home/presentation/view/widgets/book_rating.dart';
@@ -6,8 +7,8 @@ import 'package:bookly_app/feature/home/presentation/view/widgets/custom_book_im
 import 'package:flutter/material.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
-
+  const BookDetailsSection({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -16,21 +17,23 @@ class BookDetailsSection extends StatelessWidget {
         const CustomBooksDetailsAppBar(),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.15),
-          child: const CustomBookImage(
-            imageUrl:
-                'https://hips.hearstapps.com/sev.h-cdn.co/assets/16/12/480x711/gallery-1458597159-1442249474-rs-634x940-150817114528-634-jungle-book-poster-d23.jpg?resize=1200:*',
+          child: CustomBookImage(
+            width: 1,
+            height: 1.3,
+            imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!,
           ),
         ),
         const SizedBox(height: kDefaultPadding),
-        const Text(
-          'The Jungle Book',
+        Text(
+          bookModel.volumeInfo!.title!,
           style: Style.textStyle30,
+          textAlign: TextAlign.center,
         ),
         const SizedBox(height: 4),
         Opacity(
           opacity: 0.7,
           child: Text(
-            'Rudyard Kipling',
+            bookModel.volumeInfo!.authors![0],
             style: Style.textStyle16.copyWith(fontStyle: FontStyle.italic),
           ),
         ),
