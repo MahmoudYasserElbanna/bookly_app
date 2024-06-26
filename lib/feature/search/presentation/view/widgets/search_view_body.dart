@@ -25,12 +25,19 @@ class _SearchViewBodyState extends State<SearchViewBody> {
         children: [
           CustomSearchTextField(),
           SizedBox(height: 16),
-          Text(
-            'Search Result',
-            style: Style.textStyle18,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8),
+            child: Text(
+              'Search Result',
+              style: Style.textStyle18,
+            ),
           ),
           SizedBox(height: 16),
-          Expanded(child: SearchResultListView()),
+          Expanded(
+              child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8),
+            child: SearchResultListView(),
+          )),
         ],
       ),
     );
