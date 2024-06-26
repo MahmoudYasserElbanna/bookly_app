@@ -15,7 +15,7 @@ class CustomFieldSearchResult extends StatelessWidget {
       children: [
         Center(
           child: Text(
-            'I have search wide and far and we didn\'t find any thing',
+            'I have searched far and wide, but we haven\'t found anything.',
             style: Style.textStyle20.copyWith(color: Colors.grey),
             maxLines: 2,
             textAlign: TextAlign.center,

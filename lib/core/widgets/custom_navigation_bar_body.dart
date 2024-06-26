@@ -1,9 +1,11 @@
+import 'package:bookly_app/core/utils/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 List<IconData> navigationBarIcons = [
   Icons.home,
-  Icons.settings,
   Icons.favorite,
+  Icons.settings,
   Icons.account_circle,
 ];
 
@@ -27,18 +29,14 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 48,
-      width: 300,
-      margin: const EdgeInsets.only(
-        left: 64,
-        right: 64,
-      ),
+      height: 56,
+      width: 350,
+      margin: const EdgeInsets.only(left: 32),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(36),
         color: Colors.transparent,
         boxShadow: [
           BoxShadow(
-            // blurRadius: 4,
             spreadRadius: 2,
             color: Colors.grey.withOpacity(0.3),
           )
@@ -54,9 +52,10 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                 setState(() {
                   selectedIndex = i;
                 });
+                onItemTapped(i);
               },
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18),
+                padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -67,6 +66,15 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                           ? Colors.blueAccent
                           : Colors.white30,
                     ),
+                    const SizedBox(height: 4),
+                    Text(
+                      navigationBarLabels[i],
+                      style: TextStyle(
+                        color: selectedIndex == i
+                            ? Colors.blueAccent
+                            : Colors.white30,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -74,5 +82,22 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
         ],
       ),
     );
+  }
+
+  void onItemTapped(int index) {
+    switch (index) {
+      case 0:
+        GoRouter.of(context).push(AppRoutes.homeViewRoute);
+        break;
+      case 1:
+        GoRouter.of(context).push(AppRoutes.favoriteViewRoute);
+        break;
+      case 2:
+        GoRouter.of(context).push(AppRoutes.settingsViewRoute);
+        break;
+      case 3:
+        GoRouter.of(context).push(AppRoutes.accountViewRoute);
+        break;
+    }
   }
 }

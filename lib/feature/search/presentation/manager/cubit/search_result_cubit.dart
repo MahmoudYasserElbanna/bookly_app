@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:bookly_app/core/models/book_model/book_model.dart';
-import 'package:bookly_app/feature/search/presentation/data/repos/search_repos.dart';
+import 'package:bookly_app/feature/search/data/repos/search_repos.dart';
 import 'package:equatable/equatable.dart';
 
 part 'search_result_state.dart';

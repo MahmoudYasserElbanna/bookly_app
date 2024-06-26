@@ -1,12 +1,15 @@
 import 'package:bookly_app/core/utils/service_locater.dart';
 import 'package:bookly_app/core/models/book_model/book_model.dart';
+import 'package:bookly_app/feature/account/presentation/view/account_view.dart';
+import 'package:bookly_app/feature/favorite/presentation/view/favorite_view.dart';
 import 'package:bookly_app/feature/home/data/repos/home_repos_impl.dart';
 import 'package:bookly_app/feature/home/presentation/manager/relevance_books_cubit/relevance_books_cubit.dart';
 import 'package:bookly_app/feature/home/presentation/view/book_details_view.dart';
 import 'package:bookly_app/feature/home/presentation/view/home_view.dart';
-import 'package:bookly_app/feature/search/presentation/data/repos/serach_repos_impl.dart';
+import 'package:bookly_app/feature/search/data/repos/serach_repos_impl.dart';
 import 'package:bookly_app/feature/search/presentation/manager/cubit/search_result_cubit.dart';
 import 'package:bookly_app/feature/search/presentation/view/search_view.dart';
+import 'package:bookly_app/feature/setting/presentation/view/setting_view.dart';
 import 'package:bookly_app/feature/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,8 +21,23 @@ abstract class AppRoutes {
   static const homeViewRoute = '/homeView';
   static const bookDetailsViewRoute = '/bookDetailsView';
   static const searchViewRoute = '/searchView';
+  static const accountViewRoute = '/accountView';
+  static const favoriteViewRoute = '/favoriteView';
+  static const settingsViewRoute = '/settingsView';
   static GoRouter router = GoRouter(
     routes: [
+      GoRoute(
+        path: accountViewRoute,
+        builder: (context, state) => const AccountView(),
+      ),
+      GoRoute(
+        path: favoriteViewRoute,
+        builder: (context, state) => const FavoriteView(),
+      ),
+      GoRoute(
+        path: settingsViewRoute,
+        builder: (context, state) => const SettingsView(),
+      ),
       GoRoute(
         path: splashViewRoute,
         builder: (context, state) => const SplashView(),
